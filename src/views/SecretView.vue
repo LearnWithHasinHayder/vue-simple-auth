@@ -1,9 +1,9 @@
 <script setup>
-
+import AuthState from '../data/authstate';
 </script>
  
 <template>
-    <div class="flex">
+    <div class="flex" v-if="AuthState.isAuthenticated">
         <div class=" rounded-md h-48 lg:h-auto lg:w-48 flex-none bg-cover text-center overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1700413739071-d7ca09f1eb7b?q=80&w=3772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" title="Woman holding a mug">
         </div>
         <div class=" bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
