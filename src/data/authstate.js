@@ -1,5 +1,6 @@
 import {reactive} from 'vue'
 import axios from 'axios'
+import router from '../router/index.js'
 
 const AuthState = reactive({
     isAuthenticated: false,
@@ -17,9 +18,15 @@ const AuthState = reactive({
                 this.user = response.data
                 this.password=null
                 this.username=null
+                router.push("/")
+                // router.push({name: 'home'})
             }
         })
     },
+    logout(){
+        this.isAuthenticated = false
+        this.user = null
+    }
 });
 
 export default AuthState;

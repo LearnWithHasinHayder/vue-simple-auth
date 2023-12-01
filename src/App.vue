@@ -14,7 +14,8 @@ import AuthState from './data/authstate'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
+        <RouterLink v-if="!AuthState.isAuthenticated"  to="/login">Login</RouterLink>
+        <a href="#" v-if="AuthState.isAuthenticated" @click="AuthState.logout()">Logout</a>
         <RouterLink v-if="AuthState.isAuthenticated" to="/secret">Secret</RouterLink>
       </nav>
     </div>
