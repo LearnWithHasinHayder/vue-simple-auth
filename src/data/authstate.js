@@ -26,6 +26,7 @@ const AuthState = reactive({
     logout(){
         this.isAuthenticated = false
         this.user = null
+        router.push({name: 'home'})
     }
 });
 
