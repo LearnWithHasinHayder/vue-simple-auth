@@ -18,6 +18,7 @@ const AuthState = reactive({
                 this.user = response.data
                 this.password=null
                 this.username=null
+                this.saveState()
                 router.push("/")
                 // router.push({name: 'home'})
             }
@@ -26,8 +27,19 @@ const AuthState = reactive({
     logout(){
         this.isAuthenticated = false
         this.user = null
+        this.saveState()
         router.push({name: 'home'})
+    },
+    saveState(){
+        localStorage.setItem('authState', JSON.stringify(this))
+    },
+    loadState(){
+        const authState = localStorage.getItem('authState')
+        if(authState){
+            Object.assign(this, JSON.parse(authState))
+        }
     }
 });
 
+AuthState.loadState()
 export default AuthState;
